@@ -63,7 +63,9 @@
                     @include('partials.listaVacia')
                 @endforelse
             </table>
-
+        </div>
+        <div class="flex items-start justify-between mt-2 p-4">
+            {{ $products->links() }}
         </div>
     </div>
 </div>
