@@ -12,9 +12,12 @@ class AccountingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $accounting = Accounting::where('_id',$request->id)->get();
+        return response()->json([
+            'data' => $accounting
+        ],200);
     }
 
     /**

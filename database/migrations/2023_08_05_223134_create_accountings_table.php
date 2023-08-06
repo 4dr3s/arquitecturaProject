@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::connection('mongodb')->create('accountings', function (Blueprint $table) {
-            $table->id();
+            $table->id('_id');
             $table->foreignId('user_id')->constrained('users','id');
             $table->string('userName');
             $table->dateTime('inicioSesion');
             $table->dateTime('finSesion');
-            $table->timestamps();
         });
     }
 

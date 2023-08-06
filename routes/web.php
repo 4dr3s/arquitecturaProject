@@ -6,6 +6,7 @@ use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\UserController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -44,6 +45,15 @@ Route::middleware('auth')->group(function(){
     // Listar Usuarios - Admin
     Route::get('/listUsers', [UserController::class, 'showUserList'])->name('showUserAdmin')->middleware('isAdmin');
 });
+
+// Mensaje de confirmacion
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
 
 Route::get('/product', [ProductController::class, 'create']);
 Route::post('product', [ProductController::class, 'store']);

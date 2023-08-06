@@ -42,6 +42,14 @@ class SuccessfulLogin
             'userName' => $event->user->name,
             'inicioSesion' => (new DateTime($time))->format('Y-m-d\TH:i:s')
         ]);
+
+        $account = session()->get('accounting');
+        $account = 
+        [
+            'id' => $accounting->id
+        ];
+        session()->put('accounting',$account);
+        // dd(session()->get('accounting'));
         $accounting->save();
     }
 }

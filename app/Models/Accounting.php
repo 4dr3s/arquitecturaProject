@@ -10,15 +10,7 @@ class Accounting extends Model
     use HasFactory;
 
     protected $connection = 'mongodb';
+    protected $primaryKey = '_id';
 
     protected $guarded = [];
-
-    protected $hidden = [
-        'created_at',
-        'updated_at'
-    ];
-
-    protected $casts = [
-        'inicioSesion' => 'datetime:Y-m-d H:00',
-    ];
 }

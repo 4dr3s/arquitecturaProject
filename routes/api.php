@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountingController;
 use App\Http\Controllers\BillController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/product/api', [BillController::class,'index']);
 Route::post('/product/create', [BillController::class,'store']);
+Route::get('/acc/{id}', [AccountingController::class, 'index']);
