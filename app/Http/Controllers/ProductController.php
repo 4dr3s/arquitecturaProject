@@ -35,7 +35,7 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $fileName = time() . '.' . $request->productImage->extension();
-        $request->productImage->storeAs('public/productsImages/' . $fileName);
+        $request->productImage->storeAs('public/ProductImages/' . $fileName);
 
         $product = new Product();
         $product->name = $request->name;

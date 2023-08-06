@@ -19,7 +19,7 @@
             <div class="md:flex items-start py-6 2xl:px-10 md:px-6 px-4 border-b-8">
                 <div class="xl:w-1/4 lg:w-1/5 w-60 md:block hidden">
                     <img class="w-60" alt="productImage"
-                        src="{{ asset('storage/productsImages/' . $product['file']) }}" />
+                        src="{{ asset('storage/ProductImages/' . $product['file']) }}" />
                 </div>
                 <div class="md:hidden">
                 </div>

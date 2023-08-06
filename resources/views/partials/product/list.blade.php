@@ -7,66 +7,63 @@
             @include('partials.search')
         </div>
     </div>
-    @if (session('success'))
-        <div class="flex items-center p-4 mb-4 text-sm text-green-800 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400 dark:border-green-800"
-            role="alert">
-            <svg class="flex-shrink-0 inline w-4 h-4 mr-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 20 20">
-                <path
-                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
-            </svg>
-            <span class="sr-only">Info</span>
-            <div>
-                <span class="font-medium">{{ session('success') }}</span>
-            </div>
-        </div>
-    @endif
+    @include('partials.Messages.addToCar')
     <div class="mx-auto container py-8">
         <div class="flex flex-wrap items-center lg:justify-between justify-center">
-            @forelse ($products as $product)
-                <div tabindex="0" class="focus:outline-none mx-2 w-72 xl:mb-0 mb-8 border mt-4">
-                    <div>
-                        <img alt="productImage" src="{{ asset('storage/productsImages/' . $product->productImage) }}"
-                            tabindex="0" class="focus:outline-none w-full h-44" />
-                    </div>
-                    <div class="bg-white dark:bg-gray-800">
-                        <div class="p-4">
-                            <div class="flex items-center">
-                                <h2 tabindex="0"
-                                    class="border-b focus:outline-none text-lg dark:text-white font-semibold">
-                                    {{ $product->name }}
-                                </h2>
-                            </div>
-                            <p tabindex="0" class="focus:outline-none text-xs text-gray-600 dark:text-gray-200 mt-2">
-                                {{ $product->description }}
-                            </p>
-                            <div class="flex items-center justify-between py-4">
-                                <h3 tabindex="0" class="focus:outline-none text-white text-xl font-semibold">
-                                    ${{ $product->unitPrice }}
-                                </h3>
-                            </div>
-                            <div class="columns-2">
+            <table class="table-fixed w-full">
+                <thead class="text-left">
+                    <tr>
+                        <th class="w-1/5 text-sm font-extrabold tracking-wide"></th>
+                        <th class="w-1/5 text-sm font-extrabold tracking-wide"></th>
+                        <th class="w-1/5 text-sm font-extrabold tracking-wide"></th>
+                        <th class="w-1/5 text-sm font-extrabold tracking-wide"></th>
+                        <th class="w-1/5 text-sm font-extrabold tracking-wide"></th>
+                    </tr>
+                </thead>
+                @forelse ($products as $product)
+                    <tbody class="text-left text-gray-600">
+                        <tr>
+                            <th class="mb-4 text-xs font-extrabold tracking-wider w-full">
+                                <img alt="productImage"
+                                    src="{{ asset('storage/ProductImages/' . $product->productImage) }}" tabindex="0"
+                                    class="focus:outline-none" width="1000" height="616" />
+                            </th>
+                            <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider">
+                                <div class="flex items-start">
+                                    <h2 tabindex="0"
+                                        class="focus:outline-none text-lg font-semibold">
+                                        {{ $product->name }}
+                                    </h2>
+                                </div>
+                            </th>
+                            <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
+                                <div class="flex items-start py-4">
+                                    <h3 tabindex="0" class="focus:outline-none text-xl font-semibold">
+                                        ${{ $product->unitPrice }}
+                                    </h3>
+                                </div>
+                            </th>
+                            <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                                 <div class="w-1/2">
                                     <form action="{{ route('product.show', $product) }}" method="GET">
                                         @csrf
                                         <input type="submit" value="Mostrar Detalles"
-                                            class="border border-white py-2 px-1 text-white hover:cursor-pointer hover:bg-white hover:text-green-700">
+                                            class="border py-2 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-green-700">
                                     </form>
                                 </div>
+                            </th>
+                            <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                                 <div class="w-1/2">
-                                    <form action="{{ route('AddToCar', $product->id) }}" method="POST">
-                                        @csrf
-                                        <input type="submit" value="Añadir al Carrito"
-                                            class="py-2 px-1 border rounded-sm border-white bg-red-600 text-white hover:cursor-pointer">
-                                    </form>
+                                    @include('partials.cart.addToCar')
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @empty
-                @include('partials.listaVacia')
-            @endforelse
+                            </th>
+                        </tr>
+                    </tbody>
+                @empty
+                    @include('partials.listaVacia')
+                @endforelse
+            </table>
+
         </div>
     </div>
 </div>

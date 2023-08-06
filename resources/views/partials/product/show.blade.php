@@ -1,7 +1,7 @@
 <div class="md:flex items-start justify-center py-12 2xl:px-20 md:px-6 px-4">
     <div class="xl:w-2/6 lg:w-2/5 w-80 md:block hidden">
         <img class="w-full" alt="productImage"
-            src="{{ asset('storage/productsImages/' . $product->productImage) }}" />
+            src="{{ asset('storage/ProductImages/' . $product->productImage) }}" />
     </div>
     <div class="md:hidden">
     </div>
@@ -19,9 +19,7 @@
         </div>
         <div class="flex justify-center mt-6">
             @livewire('counter-plus')
-            <div>
-                <input type="submit" value="Agregar" class="p-1 rounded-xl bg-red-600 text-white hover:cursor-pointer mt-1">
-            </div>
+            @include('partials.cart.addToCar')
         </div>
     </div>
 </div>

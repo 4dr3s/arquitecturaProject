@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::connection('sqlsrv')->create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description')->nullable();
+            $table->string('description',300)->nullable();
             $table->integer('stock');
             $table->boolean('estado')->default(true);
             $table->decimal('unitPrice',5,2);

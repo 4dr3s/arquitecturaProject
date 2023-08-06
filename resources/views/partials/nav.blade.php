@@ -22,7 +22,7 @@
     @endauth
     <div class="flex items-center justify-between">
         <div class="flex items-center justify-start">
-            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">
+            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">
                 <a href=" {{ url('/home') }} ">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
                         class="w-6 h-6 inline-block">

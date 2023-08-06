@@ -1,9 +1,9 @@
-<div class="h-full px-3 pb-4 overflow-y-auto bg-white dark:bg-gray-800">
+<div class="h-full px-3 pb-4 overflow-y-auto bg-white">
     <ul class="space-y-2 font-medium">
         @if (Auth::check() && Auth::guard('isAdmin'))
             <li>
                 <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="ml-3">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline-block">
@@ -18,7 +18,7 @@
         @if (!Auth::guard('isAdmin'))
             <li>
                 <a href="{{ url('/cart') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="flex-1 ml-3 whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline-block">
@@ -33,7 +33,7 @@
         <li>
             @if (Auth::guard('isAdmin'))
                 <a href=" {{ url('/listUsers') }} "
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="flex-1 ml-3 whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline-block">
@@ -50,7 +50,7 @@
         @if (Auth::guard('isAdmin'))
             <li>
                 <a href="{{ url('/listproduct') }}"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="flex-1 ml-3 whitespace-nowrap">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="w-6 h-6 inline-block">
@@ -65,7 +65,7 @@
         @guest
             <li>
                 <a href="#"
-                    class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
                 </a>
             </li>
