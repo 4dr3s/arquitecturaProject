@@ -28,7 +28,7 @@ class CartController extends Controller
             'name' => $product->name,
             'price' => $product->unitPrice,
             'description' => $product->description,
-            'file' => $product->productImage
+            'file' => $product->productImage,
         ];
 
         session()->put('cart', $cart);
@@ -46,5 +46,15 @@ class CartController extends Controller
         }
 
         return redirect()->back()->with('error','El producto no se pudo encontrar en el carrito');
+    }
+
+    public function buyItems()
+    {
+        $totalPrice = 0;
+        foreach (session()->get('cart') as $productid => $product) {
+            $totalPrice = $product['price'] + $totalPrice;
+        }
+
+        return view('cart.buyItems', compact('totalPrice'));
     }
 }

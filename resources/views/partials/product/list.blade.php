@@ -46,9 +46,8 @@
                             <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                                 <div class="w-1/2">
                                     <form action="{{ route('product.show', $product) }}" method="GET">
-                                        @csrf
                                         <input type="submit" value="Mostrar Detalles"
-                                            class="border py-2 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-green-700">
+                                            class="border py-2 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
                                     </form>
                                 </div>
                             </th>

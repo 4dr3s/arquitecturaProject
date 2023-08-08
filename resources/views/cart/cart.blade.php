@@ -31,7 +31,6 @@
                         <label class="text-red-600 font-bold text-2xl"> ${{ $product['price'] }} </label>
                     </div>
                     <div class="flex justify-center mt-6">
-                        @livewire('counter-plus')
                         <div>
                             <form action="{{ route('removeFromCar', $productid) }}" method="POST">
                                 @csrf

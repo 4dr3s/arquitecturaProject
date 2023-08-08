@@ -64,7 +64,7 @@
         @endif
         @guest
             <li>
-                <a href="#"
+                <a href="{{ url('/logout') }}"
                     class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <span class="flex-1 ml-3 whitespace-nowrap">Sign In</span>
                 </a>

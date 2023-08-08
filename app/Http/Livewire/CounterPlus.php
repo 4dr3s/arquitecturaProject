@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use Illuminate\Support\Facades\View;
 use Livewire\Component;
 
 class CounterPlus extends Component
@@ -17,7 +18,7 @@ class CounterPlus extends Component
     public function decrement(){
         if ($this->data > 1) {
             $this->data--;
-        }
+        }   
     }
 
     public function render()

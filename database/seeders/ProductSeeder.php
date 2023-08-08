@@ -19,7 +19,7 @@ class ProductSeeder extends Seeder
             'name' => 'Portatil ASUS M415D Ryzen 5',
             'description' => 'Procesador AMD Ryzen 5 3500U Processor 2.1 GHz (2M Cache, up to 3.7 GHz, 4 cores) Gráficos  Gráficos Radeon Vega 8 Memoria DDR4 de 4 GB en placa, SO-DIMM DDR4 de 4 GB, Pantalla 14 FHD (1920 x 1080) 16:9, Disco Solido SSD M.2 NVMe PCIe® 3.0 de 256 GB',
             'stock' => 100,
-            'unitPrice' => 530.00,
+            'unitPrice' => 1530.00,
             'productImage' => 'Portatil ASUS M415D Ryzen 5.jpg'
         ]);
         Product::create([

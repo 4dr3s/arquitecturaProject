@@ -18,7 +18,6 @@
             <label class="text-red-600 font-bold text-2xl"> ${{ $product->unitPrice }} </label>
         </div>
         <div class="flex justify-center mt-6">
-            @livewire('counter-plus')
             @include('partials.cart.addToCar')
         </div>
     </div>

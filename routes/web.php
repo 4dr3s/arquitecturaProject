@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/cart', [CartController::class, 'index'])->name('CarIndex');
     Route::post('/cart/add/{id}', [CartController::class, 'addToCar'])->name('AddToCar');
     Route::post('/cart/remove/{id}', [CartController::class, 'removeFromCar'])->name('removeFromCar');
+    Route::post('/cart/buy',[CartController::class, 'buyItems'])->name('buyItems');
     // Search Item
     // Route::post('search', [ProductController::class, 'searchItem'])->name('searchProduct');
     Route::get('search', [ProductController::class, 'searchItem'])->name('searchProduct');
