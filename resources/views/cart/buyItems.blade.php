@@ -18,7 +18,6 @@
             <thead>
                 <tr>
                     <th class="text-left font-bold text-gray-700">Descripción</th>
-                    <th class="text-left font-bold text-gray-700">Cantidad</th>
                     <th class="text-right font-bold text-gray-700">Precio</th>
                 </tr>
             </thead>
@@ -32,9 +31,6 @@
                                 </h2>
                             </div>
                         </td>
-                        <td class="text-right mb-4 text-xs font-extrabold tracking-wider">
-                            <input type="number" name="canti" step="1" max="5" min="1" value="1">
-                        </td>
                         <td class="text-right mb-4 text-xs font-extrabold tracking-wider ">
                             <h3 tabindex="0" class="focus:outline-none text-xs font-semibold">
                                 ${{ $product['price'] }}
@@ -46,7 +42,6 @@
             <tfoot>
                 <tr>
                     <td class="text-left font-bold text-gray-700">Total</td>
-                    <td class="text-left font-bold text-gray-700"></td>
                     <td class="text-right font-bold text-gray-700">${{ $totalPrice }}</td>
                 </tr>
             </tfoot>

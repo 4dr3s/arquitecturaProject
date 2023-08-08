@@ -38,6 +38,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/cart/add/{id}', [CartController::class, 'addToCar'])->name('AddToCar');
     Route::post('/cart/remove/{id}', [CartController::class, 'removeFromCar'])->name('removeFromCar');
     Route::post('/cart/buy',[CartController::class, 'buyItems'])->name('buyItems');
+    Route::post('/cart/increment/{id}',[CartController::class, 'increment'])->name('cartIncrement');
+    Route::post('/cart/dicrement/{id}',[CartController::class, 'dicrement'])->name('cartDicrement');
     // Search Item
     // Route::post('search', [ProductController::class, 'searchItem'])->name('searchProduct');
     Route::get('search', [ProductController::class, 'searchItem'])->name('searchProduct');
