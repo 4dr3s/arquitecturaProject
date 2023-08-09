@@ -29,13 +29,15 @@
                     <div class="mt-6">
                         <label class="text-red-600 font-bold text-2xl"> ${{ $product['price'] }} </label>
                     </div>
-                    <div class="inline-block">
-                        {{-- <input type="number" name="canti" step="1" max="5" min="1" value="1" class="border" name="counter"> --}}
-                        <div class="inline-block">
-                            @include('partials.cart.increment')
-                        </div>
+                    <div class="p-2">
                         <div class="inline-block">
                             @include('partials.cart.dicrement')
+                        </div>
+                        <div class="bg-red-600 border p-1 w-5 text-white text-center inline-block">
+                            <label class="">{{ $product['cantidad'] }}</label>
+                        </div>
+                        <div class="inline-block">
+                            @include('partials.cart.increment')
                         </div>
                     </div>
                     <div class="flex justify-center mt-6">

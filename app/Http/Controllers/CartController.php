@@ -28,6 +28,7 @@ class CartController extends Controller
             'price' => $product->unitPrice,
             'description' => $product->description,
             'file' => $product->productImage,
+            'cantidad' => 1
         ];
 
         session()->put('cart', $cart);
@@ -62,10 +63,11 @@ class CartController extends Controller
         $productItem = Product::findOrFail($id);
         foreach (session()->get('cart') as $productid => $product) {
             if ($product['id'] === $productItem->id) {
+                $product['cantidad']++;
                 $cart = session()->get('cart');
                 session()->put('cart', $cart);
                 $product['price'] = $product['price'] + $productItem->unitPrice;
-                if ($product['price'] != $productItem->unitPrice * 5) {
+                if ($product['price'] != $productItem->unitPrice * 6) {
                     if (isset($cart[$id])) {
                         unset($cart[$id]);
                     }
@@ -75,7 +77,8 @@ class CartController extends Controller
                         'price' => $product['price'],
                         'description' => $productItem->description,
                         'file' => $productItem->productImage,
-                    ];
+                        'cantidad' => $product['cantidad']++,
+                    ]; 
                     session()->put('cart', $cart);
                     return redirect()->back();
                 } else {
@@ -90,6 +93,7 @@ class CartController extends Controller
         $productItem = Product::findOrFail($id);
         foreach (session()->get('cart') as $productid => $product) {
             if ($product['id'] === $productItem->id) {
+                $product['cantidad']--;
                 $cart = session()->get('cart');
                 session()->put('cart', $cart);
                 $product['price'] = $product['price'] - $productItem->unitPrice;
@@ -103,6 +107,7 @@ class CartController extends Controller
                         'price' => $product['price'],
                         'description' => $productItem->description,
                         'file' => $productItem->productImage,
+                        'cantidad' => $product['cantidad']--,
                     ];
                     session()->put('cart', $cart);
                     return redirect()->back();
