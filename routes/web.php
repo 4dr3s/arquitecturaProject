@@ -32,7 +32,8 @@ Route::middleware('auth')->group(function(){
     // UserDetail
     Route::get('/showDetail', [UserController::class, 'showUser'])->name('showDetail');
     // Detail Products
-    Route::resource('/product', ProductController::class);
+    // Route::resource('/product', ProductController::class);
+    Route::get('/product/show/{id}', [ProductController::class, 'show'])->name('product.show');
     // Carrito de Compras
     Route::get('/cart', [CartController::class, 'index'])->name('CarIndex');
     Route::post('/cart/add/{id}', [CartController::class, 'addToCar'])->name('AddToCar');

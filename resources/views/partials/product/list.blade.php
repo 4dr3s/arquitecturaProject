@@ -25,27 +25,27 @@
                         <tr>
                             <th class="mb-4 text-xs font-extrabold tracking-wider w-full">
                                 <img alt="productImage"
-                                    src="{{ asset('storage/ProductImages/' . $product->productImage) }}" tabindex="0"
+                                    src="{{ asset('storage/ProductImages/' . $product->getProductImage()) }}" tabindex="0"
                                     class="focus:outline-none" width="1000" height="616" />
                             </th>
                             <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider">
                                 <div class="flex items-start">
                                     <h2 tabindex="0"
                                         class="focus:outline-none text-lg font-semibold">
-                                        {{ $product->name }}
+                                        {{ $product->getName() }}
                                     </h2>
                                 </div>
                             </th>
                             <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                                 <div class="flex items-start py-4">
                                     <h3 tabindex="0" class="focus:outline-none text-xl font-semibold">
-                                        ${{ $product->unitPrice }}
+                                        ${{ $product->getUnitPrice() }}
                                     </h3>
                                 </div>
                             </th>
                             <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                                 <div class="w-1/2">
-                                    <form action="{{ route('product.show', $product) }}" method="GET">
+                                    <form action="{{ route('product.show', $product->getId()) }}" method="GET">
                                         <input type="submit" value="Mostrar Detalles"
                                             class="border py-2 px-1 hover:cursor-pointer hover:bg-blue-500 hover:text-white">
                                     </form>
@@ -63,8 +63,8 @@
                 @endforelse
             </table>
         </div>
-        <div class="flex items-start justify-between mt-2 p-4">
+        {{-- <div class="flex items-start justify-between mt-2 p-4">
             {{ $products->links() }}
-        </div>
+        </div> --}}
     </div>
 </div>

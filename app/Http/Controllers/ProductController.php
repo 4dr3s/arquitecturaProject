@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\PATRON\DAO\productsDAO;
+use App\PATRON\DTO\productsDTO;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
@@ -10,7 +12,7 @@ class ProductController extends Controller
 {
     public function searchItem(Request $request)
     {
-        $products = Product::where('name', 'LIKE','%'.$request->search.'%')->get();
+        $products = Product::where('name', 'LIKE', '%' . $request->search . '%')->get();
         return view('home.home', compact('products'));
     }
 
@@ -48,8 +50,21 @@ class ProductController extends Controller
         return redirect(RouteServiceProvider::HOME);
     }
 
-    public function show(Product $product)
+    public function show($id)
     {
-        return view('home.product', compact('product'));
+        $productDao = new productsDAO();
+        $onlyProd = $productDao->showProduct($id);
+        $product = []; // Objeto DTO
+
+        $product = new productsDTO(
+            $onlyProd->id,
+            $onlyProd->name,
+            $onlyProd->description,
+            $onlyProd->stock,
+            $onlyProd->estado,
+            $onlyProd->unitPrice,
+            $onlyProd->productImage
+        );
+        return view('home.product', ['product' => $product]);
     }
 }

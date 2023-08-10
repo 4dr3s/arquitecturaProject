@@ -14,6 +14,8 @@ class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $connection = 'sqlsrv';
+
     /**
      * The attributes that are mass assignable.
      *

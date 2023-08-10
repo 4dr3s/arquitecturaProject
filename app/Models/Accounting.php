@@ -10,6 +10,7 @@ class Accounting extends Model
     use HasFactory;
 
     protected $connection = 'mongodb';
+    protected $collection = 'accountings';
     protected $primaryKey = '_id';
 
     protected $guarded = [];

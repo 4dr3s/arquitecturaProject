@@ -2,16 +2,28 @@
 
 namespace App\Http\Controllers;
 
-use App\Contracts\BaseRepositoryHomeInterface;
-use App\Models\Product;
-use Illuminate\Http\Request;
-use Illuminate\Pagination\LengthAwarePaginator;
+use App\PATRON\DAO\productsDAO;
+use App\PATRON\DTO\productsDTO;
 
 class HomeController extends Controller
 {
     public function showAllProducts()
     {
-        $products = Product::paginate(5);
+        $productDao = new productsDAO();
+        $Allproducts = $productDao->showProducts();
+
+        $products = []; // Objeto DTO
+        foreach ($Allproducts as $product) {
+            $products[] = new productsDTO(
+                $product->id,
+                $product->name, 
+                $product->description, 
+                $product->stock, 
+                $product->estado, 
+                $product->unitPrice, 
+                $product->productImage
+            );
+        }
         return view('home.home', compact('products'));
     }
 }

@@ -10,6 +10,7 @@ class Categorie extends Model
 {
     use HasFactory;
 
+    protected $connection = 'sqlsrv';
     protected $guarded = [];
 
     public function Products():BelongsToMany
