@@ -41,6 +41,7 @@ Route::middleware('auth')->group(function(){
     Route::post('/cart/buy',[CartController::class, 'buyItems'])->name('buyItems');
     Route::post('/cart/increment/{id}',[CartController::class, 'increment'])->name('cartIncrement');
     Route::post('/cart/dicrement/{id}',[CartController::class, 'dicrement'])->name('cartDicrement');
+    Route::post('/cart/buy/items', [CartController::class, 'doSell'])->name('buyItems');
     // Search Item
     // Route::post('search', [ProductController::class, 'searchItem'])->name('searchProduct');
     Route::get('search', [ProductController::class, 'searchItem'])->name('searchProduct');

@@ -33,7 +33,7 @@
                         <div class="inline-block">
                             @include('partials.cart.dicrement')
                         </div>
-                        <div class="bg-red-600 border p-1 w-5 text-white text-center inline-block">
+                        <div class="bg-red-600 border w-8 text-white text-center inline-block">
                             <label class="">{{ $product['cantidad'] }}</label>
                         </div>
                         <div class="inline-block">

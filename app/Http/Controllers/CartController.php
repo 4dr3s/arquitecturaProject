@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\PATRON\DAO\Bill\BillsDAO;
+use App\PATRON\DTO\Bill\BillsDTO;
+use App\Providers\RouteServiceProvider;
+use DateTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -116,5 +121,39 @@ class CartController extends Controller
                 }
             }
         }
+    }
+
+    public function doSell(Request $request)
+    {
+        $cantidad = [];
+        $products = [];
+        foreach (session()->get('cart') as $productid => $product) {
+            $cantidad[] = [
+                $product['name'] => $product['cantidad']
+            ];
+            $products[] = [
+                $product['name']
+            ];
+        };
+
+        $totalPrice = 0;
+        foreach (session()->get('cart') as $productid => $product) {
+            $totalPrice = $product['price'] + $totalPrice;
+        }
+
+        $billDTO = new BillsDTO(
+            $id = null,
+            $cantidad,
+            $totalPrice,
+            (new DateTime(now()->toDateTimeString()))->format('Y-m-d\TH:i:s'),
+            Auth::user()->id,
+            $products
+        );
+        $billDao = new BillsDAO();
+        $bill = $billDao->createBill($billDTO);
+
+        $items = session()->get('cart');
+        session()->invalidate();
+        return redirect(RouteServiceProvider::HOME);
     }
 }
