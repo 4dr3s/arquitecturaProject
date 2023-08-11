@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PATRON\DTO;
+namespace App\PATRON\DTO\Product;
 
 class productsDTO
 {

@@ -12,13 +12,13 @@
             @forelse ($users as $user)
                 <tr class="border">
                     <th class="mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
-                        <p class="name-1">{{ $user->name }}</p>
+                        <p class="name-1">{{ $user->getgetName() }}</p>
                     </th>
-                    <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">{{ $user->email }}<span
+                    <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">{{ $user->getemail() }}<span
                             class="num-4"></span>
                     </th>
                     <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
-                        @if ($user->isAdmin)
+                        @if ($user->getIsAdmin())
                             Administrador
                         @else
                             Cliente
@@ -26,7 +26,7 @@
                         <span class="num-2"></span>
                     </th>
                     <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
-                        @if ($user->estado)
+                        @if ($user->getEstado())
                             <label class="rounded-lg bg-green-500 text-white p-4">
                                 Activa
                             </label>

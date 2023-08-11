@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\PATRON\DAO\productsDAO;
-use App\PATRON\DTO\productsDTO;
+use App\PATRON\DAO\Product\productsDAO;
+use App\PATRON\DTO\Product\productsDTO;
 
 class HomeController extends Controller
 {
@@ -24,6 +24,6 @@ class HomeController extends Controller
                 $product->productImage
             );
         }
-        return view('home.home', compact('products'));
+        return view('home.home', compact('products','Allproducts'));
     }
 }

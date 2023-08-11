@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PATRON\DAO;
+namespace App\PATRON\DAO\Connection;
 
 use App\Connection\MySQLSRVConnectionFactory;
 use App\Connection\MongoDBConnectionFactory as ConnectionMongoDBConnectionFactory;

@@ -11,6 +11,4 @@ class Bill extends Model
     use HasFactory;
 
     protected $guarded = [];
-
-    protected $connection = 'mongodb';
 }

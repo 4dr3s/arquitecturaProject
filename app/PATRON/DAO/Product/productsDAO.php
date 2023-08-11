@@ -1,9 +1,9 @@
 <?php
 
-namespace App\PATRON\DAO;
+namespace App\PATRON\DAO\Product;
 
-use App\Connection\MySQLSRVConnectionFactory;
 use App\Models\Product;
+use App\PATRON\DAO\Connection\connection;
 
 class productsDAO extends connection
 {
@@ -11,7 +11,7 @@ class productsDAO extends connection
     {
         $connection = new connection();
         $sqlsrvDBConnection = $connection->sqlsrvConnection();
-        $products = Product::on($sqlsrvDBConnection)->get();
+        $products = Product::on($sqlsrvDBConnection)->paginate(5);
 
         return $products;
     }

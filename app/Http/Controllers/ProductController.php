@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\PATRON\DAO\productsDAO;
-use App\PATRON\DTO\productsDTO;
+use App\PATRON\DAO\Product\productsDAO;
+use App\PATRON\DTO\Product\productsDTO;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
@@ -54,7 +54,6 @@ class ProductController extends Controller
     {
         $productDao = new productsDAO();
         $onlyProd = $productDao->showProduct($id);
-        $product = []; // Objeto DTO
 
         $product = new productsDTO(
             $onlyProd->id,
