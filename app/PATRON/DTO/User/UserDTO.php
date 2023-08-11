@@ -12,7 +12,7 @@ class UserDTO
     private $estado;
     private $isAdmin;
 
-    public function __construct($id, $name, $email, $profileImage, $password, $estado, $isAdmin)
+    public function __construct($id = null, $name, $email, $profileImage, $password, $estado, $isAdmin)
     {
         $this->id = $id;
         $this->name = $name;

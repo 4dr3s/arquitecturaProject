@@ -2,11 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\PATRON\DAO\User\UserDao;
 use App\PATRON\DTO\User\UserDTO;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -29,17 +26,18 @@ class UserController extends Controller
     public function showUserList()
     {
         $userDAO = new UserDao();
-        $finduser = $userDAO->showUser();
+        $finduser = $userDAO->showUserList();
+        // dd($finduser);
         $users = [];
-        foreach ($users as $user) {
+        foreach ($finduser as $user) {
             $users[] = new UserDTO(
-                $finduser->id,
-                $finduser->name,
-                $finduser->email,
-                $finduser->profileImage,
-                $finduser->password,
-                $finduser->estado,
-                $finduser->isAdmin
+                $user->id,
+                $user->name,
+                $user->email,
+                $user->profileImage,
+                $user->password,
+                $user->estado,
+                $user->isAdmin
             );
         }
         return view('admin.client.list', compact('users'));

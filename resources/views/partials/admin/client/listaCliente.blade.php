@@ -12,7 +12,7 @@
             @forelse ($users as $user)
                 <tr class="border">
                     <th class="mb-4 text-xs font-extrabold tracking-wider flex flex-row items-center w-full">
-                        <p class="name-1">{{ $user->getgetName() }}</p>
+                        <p class="name-1">{{ $user->getName() }}</p>
                     </th>
                     <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">{{ $user->getemail() }}<span
                             class="num-4"></span>

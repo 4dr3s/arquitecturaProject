@@ -21,7 +21,7 @@
                     <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right columns-2">
                         <div class="inline-block">
                             <img class="img-thumbnail"
-                                src="{{ asset('storage/productsImages/' . $product->productImage) }}" alt="ProducImage"
+                                src="{{ asset('storage/ProductImages/' . $product->productImage) }}" alt="ProducImage"
                                 class="w-5">
                         </div>
                         <div>
