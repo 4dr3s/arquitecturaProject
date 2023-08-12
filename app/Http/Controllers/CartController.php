@@ -123,7 +123,7 @@ class CartController extends Controller
         }
     }
 
-    public function doSell(Request $request)
+    public function doSell()
     {
         $cantidad = [];
         $products = [];
@@ -132,7 +132,7 @@ class CartController extends Controller
                 $product['name'] => $product['cantidad']
             ];
             $products[] = [
-                $product['name']
+                'name' => $product['name']
             ];
         };
 

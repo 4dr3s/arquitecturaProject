@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PATRON\DAO\Accounting;
+namespace App\PATRON\DAO\Category;
 
 class CategoriesDAO
 {

@@ -20,7 +20,7 @@ class UserDao extends connection
         $connection = new connection();
         $sqlsrvDBConnection = $connection->sqlsrvConnection();
 
-        $users = User::on($sqlsrvDBConnection)->get();
+        $users = User::on($sqlsrvDBConnection)->where('isAdmin',false)->get();
         return $users;
     }
 

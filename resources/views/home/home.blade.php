@@ -6,7 +6,7 @@
         </div>
     @else
         <div>
-            @include('dashboard.dashboard')
+            @include('home.admin')
         </div>
     @endif
 @endsection

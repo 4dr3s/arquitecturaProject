@@ -11,4 +11,6 @@ class Bill extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    protected $collection = 'bills';
 }

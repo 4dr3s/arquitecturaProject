@@ -5,7 +5,11 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\auth\LoginController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\auth\RegisterController;
+use App\Http\Controllers\BillController;
+use App\Http\Controllers\ChartController;
+use App\Http\Controllers\DashBoardController;
 use App\Http\Controllers\UserController;
+use App\Http\Livewire\LineChart;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +53,10 @@ Route::middleware('auth')->group(function(){
     Route::get('/listproduct',[ProductController::class, 'listProduct'])->name('showProductsAdmin')->middleware('isAdmin');
     // Listar Usuarios - Admin
     Route::get('/listUsers', [UserController::class, 'showUserList'])->name('showUserAdmin')->middleware('isAdmin');
+    // Bill
+    Route::post('/bill/detail/{id}', [BillController::class, 'showUserBillDetail'])->name('showUserBill')->middleware('isAdmin');
+    // Dashboard
+    Route::get('/chartView', [DashBoardController::class, 'handleChart']);
 });
 
 // Mensaje de confirmacion

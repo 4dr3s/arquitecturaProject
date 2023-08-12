@@ -25,6 +25,7 @@
         </div>
     </div>
     @livewireScripts
+    @livewireChartsScripts
 </body>
-
+    @yield('scripts')
 </html>

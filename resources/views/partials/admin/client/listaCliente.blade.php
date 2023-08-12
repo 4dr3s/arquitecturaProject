@@ -5,6 +5,7 @@
                 <th class="w-1/2 pb-10 text-sm font-extrabold tracking-wide">Cliente</th>
                 <th class="w-1/4 pb-10 text-sm font-extrabold tracking-wide text-right">Email</th>
                 <th class="w-1/4 pb-10 text-sm font-extrabold tracking-wide text-right">Rol</th>
+                <th class="w-1/4 pb-10 text-sm font-extrabold tracking-wide text-right">Compras</th>
                 <th class="w-1/4 pb-10 text-sm font-extrabold tracking-wide text-right">Estado de la cuenta</th>
             </tr>
         </thead>
@@ -24,6 +25,12 @@
                             Cliente
                         @endif
                         <span class="num-2"></span>
+                    </th>
+                    <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
+                        <form action="{{ route('showUserBill', $user->getId()) }}" method="POST">
+                            @csrf
+                            <input type="submit" value="Ver Compras" class="hover:cursor-pointer">
+                        </form>
                     </th>
                     <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider text-right">
                         @if ($user->getEstado())
