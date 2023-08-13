@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'usuario1',
+            'name' => fake()->name(),
             'email' => 'user1@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'user2.jpg',
@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => 'usuario2',
+            'name' => fake()->name(),
             'email' => 'user2@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'user3.jpg',
@@ -37,7 +37,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => 'usuario3',
+            'name' => fake()->name(),
             'email' => 'user3@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'user4.jpg',
@@ -47,7 +47,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => 'usuario4',
+            'name' => fake()->name(),
             'email' => 'user4@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'user5.jpg',
@@ -57,7 +57,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => 'usuario5',
+            'name' => fake()->name(),
             'email' => 'user5@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'admin.jpg',
@@ -67,7 +67,7 @@ class UserSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
         User::create([
-            'name' => 'admin',
+            'name' => fake()->name(),
             'email' => 'admin@gmail.com',
             'email_verified_at' => now(),
             'profileImage' => 'user1.jpg',
