@@ -4,6 +4,7 @@ namespace App\PATRON\DTO\Product;
 
 class productsDTO
 {
+    // Variables correspondientes a los atributos de la entidad
     private $id;
     private $name;
     private $description;
@@ -11,18 +12,20 @@ class productsDTO
     private $estado;
     private $unitPrice;
     private $productImage;
-
-    public function __construct($id ,$name, $description, $stock, $estado, $unitPrice, $productImage)
+    private $category;
+    // Constructor para instancias las variables
+    public function __construct($id ,$name, $description, $stock, $estado, $unitPrice, $productImage, $category)
     {
         $this->id = $id;
         $this->name = $name;
         $this->description = $description;
         $this->stock = $stock;
-        $this->$estado = $estado;
+        $this->estado = $estado;
         $this->unitPrice = $unitPrice;
         $this->productImage = $productImage;
+        $this->category = $category;
     }
-
+    // Métodos get y set para las diferentes variables
     public function getId()
     {
         return $this->id;
@@ -58,6 +61,11 @@ class productsDTO
         return $this->productImage;
     }
 
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
     public function setId($id)
     {
         $this->id = $id;
@@ -91,5 +99,10 @@ class productsDTO
     public function setProductImage($productImage)
     {
         $this->productImage = $productImage;
+    }
+    
+    public function setCategory($category)
+    {
+        $this->category = $category;
     }
 }

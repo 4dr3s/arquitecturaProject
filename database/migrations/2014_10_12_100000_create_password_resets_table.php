@@ -6,11 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+    // Funcion para crear la tabla en la base de datos
     public function up()
     {
         Schema::connection('sqlsrv')->create('password_resets', function (Blueprint $table) {
@@ -20,11 +16,7 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    // Funcion para eliminar la tabla si se hace un rollback
     public function down()
     {
         Schema::dropIfExists('password_resets');

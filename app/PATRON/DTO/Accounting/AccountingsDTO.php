@@ -4,12 +4,13 @@ namespace App\PATRON\DTO\Accounting;
 
 class Accounting
 {
+	// Variables correspondientes a los atributos de la entidad
     private $id;
     private $user_id;
     private $userName;
     private $inicioSesion;
     private $finSesion;
-
+	// Constructor para instancias las variables
     public function __construct($id, $user_id, $userName, $inicioSesion, $finSesion)
     {
         $this->id = $id;
@@ -18,7 +19,7 @@ class Accounting
         $this->inicioSesion = $inicioSesion;
         $this->finSesion = $finSesion;
     }
-
+	// Métodos get y set para las diferentes variables
 	public function getId() {
 		return $this->id;
 	}

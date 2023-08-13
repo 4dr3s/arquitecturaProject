@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    // Funcion para crear la tabla en la base de datos
     public function up(): void
     {
         Schema::connection('sqlsrv')->create('categories_products', function (Blueprint $table) {
@@ -20,9 +18,7 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+    // Funcion para eliminar la tabla si se hace un rollback
     public function down(): void
     {
         Schema::dropIfExists('categories_products');

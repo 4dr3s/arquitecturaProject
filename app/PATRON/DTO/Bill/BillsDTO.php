@@ -4,13 +4,14 @@ namespace App\PATRON\DTO\Bill;
 
 class BillsDTO
 {
+	// Variables correspondientes a los atributos de la entidad
     private $id;
     private $amount;
     private $totalPrice;
     private $dateOrder;
     private $user_id;
     private $product_id;
-
+	// Constructor para instancias las variables
     public function __construct($id, $amount, $totalPrice, $dateOrder, $user_id, $product_id)
     {
         $this->id = $id;
@@ -20,7 +21,7 @@ class BillsDTO
         $this->user_id = $user_id;
         $this->product_id = $product_id;
     }
-    
+	// Métodos get y set para las diferentes variables
 	public function getId() {
 		return $this->id;
 	}

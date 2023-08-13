@@ -16,6 +16,7 @@ class isAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
+        // Middleware para validar que el usuario conectado tenga el parametro isadmin true
         if (Auth::check() && Auth::guard('isAdmin')) {
             return $next($request);
         }

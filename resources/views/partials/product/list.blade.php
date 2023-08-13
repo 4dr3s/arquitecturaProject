@@ -4,7 +4,9 @@
             @include('partials.product.title')
         </div>
         <div class="inline-block align-top float-right w-6/12">
-            @include('partials.search')
+            <form action="{{ route('searchProduct') }}" method="GET">
+                @include('partials.search')
+            </form>
         </div>
     </div>
     @include('partials.Messages.addToCar')
@@ -59,7 +61,7 @@
                         </tr>
                     </tbody>
                 @empty
-                    @include('partials.listaVacia')
+                    @include('partials.product.listaVacia')
                 @endforelse
             </table>
         </div>

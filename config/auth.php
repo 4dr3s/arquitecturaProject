@@ -44,6 +44,10 @@ return [
             'driver' => 'isAdmin',
             'provider' => 'users',
         ],
+        'activateAccount' => [
+            'driver' => 'activateAccount',
+            'provider' => 'users',
+        ],
     ],
 
     /*

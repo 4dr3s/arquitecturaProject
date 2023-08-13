@@ -4,6 +4,7 @@ namespace App\PATRON\DTO\User;
 
 class UserDTO
 {
+	// Variables correspondientes a los atributos de la entidad
     private $id;
     private $name;
     private $email;
@@ -11,7 +12,7 @@ class UserDTO
     private $password;
     private $estado;
     private $isAdmin;
-
+	// Constructor para instancias las variables
     public function __construct($id = null, $name, $email, $profileImage, $password, $estado, $isAdmin)
     {
         $this->id = $id;
@@ -22,7 +23,7 @@ class UserDTO
         $this->estado = $estado;
         $this->isAdmin = $isAdmin;
     }
-    	
+	// Métodos get y set para las diferentes variables
 	public function getId() {
 		return $this->id;
 	}

@@ -27,5 +27,8 @@ class AuthServiceProvider extends ServiceProvider
         Auth::extend('isAdmin', function(){
             return Auth::user()->isAdmin;
         });
+        Auth::extend('activateAccount', function(){
+            return Auth::user()->estado;
+        });
     }
 }
