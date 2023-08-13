@@ -60,12 +60,14 @@ Route::middleware('auth')->group(function(){
     // Productos
     // En este conjunto de rutas se enfoca en el controlador para los productos
     Route::get('/searchProduct', [ProductController::class, 'searchItem'])->name('searchProduct');
+    Route::get('filterProd', [HomeController::class, 'filter'])->name('filterProd');
     Route::get('/searchProductAdmin', [ProductController::class, 'searchAdminProduct'])->name('searchAdminProduct')->middleware('isAdmin');
     // Listar Producto - Admin
     Route::get('/listproduct',[ProductController::class, 'listProduct'])->name('showProductsAdmin')->middleware('isAdmin');
     Route::get('modifyProduct/{id}', [ProductController::class, 'modifyProduct'])->name('modifyProduct')->middleware('isAdmin');
     Route::get('modifyProductActivate/{id}', [ProductController::class, 'modifyProductActivate'])->name('modifyProductActivate')->middleware('isAdmin');
     Route::get('addProduct/{id}', [ProductController::class, 'addProduct'])->name('addProduct')->middleware('isAdmin');
+    Route::get('filter', [ProductController::class, 'filter'])->name('filterAdmin')->middleware('isAdmin');
     // Listar Usuarios - Admin
     // En este conjunto de rutas se enfoca en el controlador para los usuarios
     Route::get('/listUsers', [UserController::class, 'showUserList'])->name('showUserAdmin')->middleware('isAdmin');

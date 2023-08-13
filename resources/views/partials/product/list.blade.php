@@ -9,6 +9,11 @@
             </form>
         </div>
     </div>
+    <div class="mt-4">
+        <form action="{{ route('filterProd') }}" method="GET">
+            @include('partials.product.filter')
+        </form>
+    </div>
     @include('partials.Messages.addToCar')
     <div class="mx-auto container py-8">
         <div class="flex flex-wrap items-center lg:justify-between justify-center">
@@ -27,13 +32,12 @@
                         <tr>
                             <th class="mb-4 text-xs font-extrabold tracking-wider w-full">
                                 <img alt="productImage"
-                                    src="{{ asset('storage/ProductImages/' . $product->getProductImage()) }}" tabindex="0"
-                                    class="focus:outline-none" width="1000" height="616" />
+                                    src="{{ asset('storage/ProductImages/' . $product->getProductImage()) }}"
+                                    tabindex="0" class="focus:outline-none" width="1000" height="616" />
                             </th>
                             <th class="w-1/4 mb-4 text-xs font-extrabold tracking-wider">
                                 <div class="flex items-start">
-                                    <h2 tabindex="0"
-                                        class="focus:outline-none text-lg font-semibold">
+                                    <h2 tabindex="0" class="focus:outline-none text-lg font-semibold">
                                         {{ $product->getName() }}
                                     </h2>
                                 </div>
@@ -65,8 +69,10 @@
                 @endforelse
             </table>
         </div>
-        <div class="flex items-start justify-between mt-2 p-4">
-            {{ $Allproducts->links() }}
-        </div>
+        @if (!$products == null)
+            <div class="flex items-start justify-between mt-2 p-4">
+                {{ $Allproducts->links() }}
+            </div>
+        @endif
     </div>
 </div>

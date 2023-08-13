@@ -4,6 +4,11 @@
             @include('partials.search')
         </form>
     </div>
+    <div class="mt-4 mb-4">
+        <form action="{{ route('filterAdmin') }}" method="GET">
+            @include('partials.product.filter')
+        </form>
+    </div>
     <table class="table-fixed w-full">
         <thead class="text-left">
             <tr>
@@ -72,6 +77,8 @@
         </tbody>
     </table>
 </div>
-<div class="flex items-start justify-between mt-2 p-4">
-    {{ $productsList->links() }}
-</div>
+@if (!$products == null)
+    <div class="flex items-start justify-between mt-2 p-4">
+        {{ $productsList->links() }}
+    </div>
+@endif
