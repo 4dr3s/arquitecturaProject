@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Connection\MongoDBConnectionFactory as ConnectionMongoDBConnectionFactory;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,8 +22,10 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call([
+            UserSeeder::class,
+            BillSeeder::class,
+            ProductSeeder::class,
             CategoriesSeeder::class,
-            ProductSeeder::class
         ]);
     }
 }
